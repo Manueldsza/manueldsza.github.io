@@ -7,98 +7,104 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Page 1 -->
-        <div id="page1" class="page active">
-            <h1>Page 1 - Denominations</h1>
-            <form id="form1">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Denomination</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Denominations -->
-                        <tr><td>R200</td><td><input type="number" id="qty200_1" min="0" value="0"></td><td><span id="total200_1">0</span></td></tr>
-                        <tr><td>R100</td><td><input type="number" id="qty100_1" min="0" value="0"></td><td><span id="total100_1">0</span></td></tr>
-                        <tr><td>R50</td><td><input type="number" id="qty50_1" min="0" value="0"></td><td><span id="total50_1">0</span></td></tr>
-                        <tr><td>R20</td><td><input type="number" id="qty20_1" min="0" value="0"></td><td><span id="total20_1">0</span></td></tr>
-                        <tr><td>R10</td><td><input type="number" id="qty10_1" min="0" value="0"></td><td><span id="total10_1">0</span></td></tr>
-                        <tr><td>R5</td><td><input type="number" id="qty5_1" min="0" value="0"></td><td><span id="total5_1">0</span></td></tr>
-                        <tr><td>R2</td><td><input type="number" id="qty2_1" min="0" value="0"></td><td><span id="total2_1">0</span></td></tr>
-                        <tr><td>R1</td><td><input type="number" id="qty1_1" min="0" value="0"></td><td><span id="total1_1">0</span></td></tr>
-                        <tr><td>50c</td><td><input type="number" id="qty50c_1" min="0" value="0"></td><td><span id="total50c_1">0</span></td></tr>
-                        <tr><td>20c</td><td><input type="number" id="qty20c_1" min="0" value="0"></td><td><span id="total20c_1">0</span></td></tr>
-                        <tr><td>10c</td><td><input type="number" id="qty10c_1" min="0" value="0"></td><td><span id="total10c_1">0</span></td></tr>
-                    </tbody>
-                </table>
-                <h2>Grand Total: <span id="grandTotal1">0</span></h2>
-                <button type="button" onclick="navigateToPage(2)">Next</button>
-            </form>
-        </div>
-
-        <!-- Page 2 -->
-        <div id="page2" class="page">
-            <h1>Page 2 - Denominations</h1>
-            <form id="form2">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Denomination</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Denominations -->
-                        <tr><td>R200</td><td><input type="number" id="qty200_2" min="0" value="0"></td><td><span id="total200_2">0</span></td></tr>
-                        <tr><td>R100</td><td><input type="number" id="qty100_2" min="0" value="0"></td><td><span id="total100_2">0</span></td></tr>
-                        <tr><td>R50</td><td><input type="number" id="qty50_2" min="0" value="0"></td><td><span id="total50_2">0</span></td></tr>
-                        <tr><td>R20</td><td><input type="number" id="qty20_2" min="0" value="0"></td><td><span id="total20_2">0</span></td></tr>
-                        <tr><td>R10</td><td><input type="number" id="qty10_2" min="0" value="0"></td><td><span id="total10_2">0</span></td></tr>
-                        <tr><td>R5</td><td><input type="number" id="qty5_2" min="0" value="0"></td><td><span id="total5_2">0</span></td></tr>
-                        <tr><td>R2</td><td><input type="number" id="qty2_2" min="0" value="0"></td><td><span id="total2_2">0</span></td></tr>
-                        <tr><td>R1</td><td><input type="number" id="qty1_2" min="0" value="0"></td><td><span id="total1_2">0</span></td></tr>
-                        <tr><td>50c</td><td><input type="number" id="qty50c_2" min="0" value="0"></td><td><span id="total50c_2">0</span></td></tr>
-                        <tr><td>20c</td><td><input type="number" id="qty20c_2" min="0" value="0"></td><td><span id="total20c_2">0</span></td></tr>
-                        <tr><td>10c</td><td><input type="number" id="qty10c_2" min="0" value="0"></td><td><span id="total10c_2">0</span></td></tr>
-                    </tbody>
-                </table>
-                <h2>Grand Total: <span id="grandTotal2">0</span></h2>
-                <button type="button" onclick="navigateToPage(3)">Next</button>
-            </form>
-        </div>
-
-        <!-- Page 3 -->
-        <div id="page3" class="page">
-            <h1>Page 3 - Differences</h1>
+    <div id="page1" class="page">
+        <h1>Page 1 - Denominations</h1>
+        <form id="form1">
             <table>
                 <thead>
                     <tr>
                         <th>Denomination</th>
-                        <th>Difference</th>
+                        <th>Qty</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Denomination Differences -->
-                    <tr><td>R200</td><td><span id="diff200">0</span></td></tr>
-                    <tr><td>R100</td><td><span id="diff100">0</span></td></tr>
-                    <tr><td>R50</td><td><span id="diff50">0</span></td></tr>
-                    <tr><td>R20</td><td><span id="diff20">0</span></td></tr>
-                    <tr><td>R10</td><td><span id="diff10">0</span></td></tr>
-                    <tr><td>R5</td><td><span id="diff5">0</span></td></tr>
-                    <tr><td>R2</td><td><span id="diff2">0</span></td></tr>
-                    <tr><td>R1</td><td><span id="diff1">0</span></td></tr>
-                    <tr><td>50c</td><td><span id="diff50c">0</span></td></tr>
-                    <tr><td>20c</td><td><span id="diff20c">0</span></td></tr>
-                    <tr><td>10c</td><td><span id="diff10c">0</span></td></tr>
+                    <tr>
+                        <td>R200</td>
+                        <td><input type="number" id="qty200_1" min="0" value="0"></td>
+                        <td><span id="total200_1">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>R100</td>
+                        <td><input type="number" id="qty100_1" min="0" value="0"></td>
+                        <td><span id="total100_1">0</span></td>
+                    </tr>
+                    <!-- Add more denominations here -->
+                    <tr>
+                        <td>10c</td>
+                        <td><input type="number" id="qty10c_1" min="0" value="0"></td>
+                        <td><span id="total10c_1">0</span></td>
+                    </tr>
                 </tbody>
             </table>
-            <h2>Total Difference: <span id="totalDifference">0</span></h2>
-        </div>
+            <h2>Grand Total: <span id="grandTotal1">0</span></h2>
+            <button type="button" onclick="navigateToPage(2)">Next</button>
+        </form>
     </div>
 
-    <script src="script.js"></script
+    <div id="page2" class="page">
+        <h1>Page 2 - Denominations</h1>
+        <form id="form2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Denomination</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>R200</td>
+                        <td><input type="number" id="qty200_2" min="0" value="0"></td>
+                        <td><span id="total200_2">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>R100</td>
+                        <td><input type="number" id="qty100_2" min="0" value="0"></td>
+                        <td><span id="total100_2">0</span></td>
+                    </tr>
+                    <!-- Add more denominations here -->
+                    <tr>
+                        <td>10c</td>
+                        <td><input type="number" id="qty10c_2" min="0" value="0"></td>
+                        <td><span id="total10c_2">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Grand Total: <span id="grandTotal2">0</span></h2>
+            <button type="button" onclick="navigateToPage(3)">Next</button>
+        </form>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>Page 3 - Difference</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Denomination</th>
+                    <th>Difference</th>
+                </tr>
+            </thead>
+            <tbody id="differenceTable">
+                <tr>
+                    <td>R200</td>
+                    <td><span id="diff200">0</span></td>
+                </tr>
+                <tr>
+                    <td>R100</td>
+                    <td><span id="diff100">0</span></td>
+                </tr>
+                <!-- Add more denominations here -->
+                <tr>
+                    <td>10c</td>
+                    <td><span id="diff10c">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Total Difference: <span id="totalDifference">0</span></h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
