@@ -10,35 +10,52 @@
             margin: 20px;
             background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5);
             background-size: cover;
+            padding: 0;
+            margin: 0;
         }
         h1 {
             text-align: center;
+            font-size: 5vw; /* Make the title responsive */
         }
         table {
             width: 100%;
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
             background-color: rgba(255, 255, 255, 0.8);
         }
         th, td {
-            padding: 12px;
+            padding: 8px;
             text-align: center;
+            font-size: 4vw; /* Responsive font size */
         }
         th {
             background-color: #f4f4f4;
             font-weight: bold;
         }
         input[type="number"] {
-            width: 100%;
-            max-width: 80px;
+            width: 60px;
+            font-size: 3.5vw; /* Responsive input size */
             text-align: center;
+            padding: 5px;
         }
         tbody tr {
             border-bottom: 1px solid #ddd;
         }
         tbody tr:last-child {
             border-bottom: none;
+        }
+        @media (min-width: 600px) {
+            th, td {
+                font-size: 1.5vw; /* Larger font for bigger screens */
+            }
+            input[type="number"] {
+                width: 80px;
+                font-size: 1.2vw;
+            }
+            h1 {
+                font-size: 2.5vw;
+            }
         }
     </style>
 </head>
@@ -101,6 +118,16 @@
             <td><span id="total0.5">0.00</span></td>
         </tr>
         <tr>
+            <td>20c</td>
+            <td><input type="number" id="qty0.2" oninput="calculateTotal(0.2, 'qty0.2', 'total0.2')"></td>
+            <td><span id="total0.2">0.00</span></td>
+        </tr>
+        <tr>
+            <td>10c</td>
+            <td><input type="number" id="qty0.1" oninput="calculateTotal(0.1, 'qty0.1', 'total0.1')"></td>
+            <td><span id="total0.1">0.00</span></td>
+        </tr>
+        <tr>
             <th colspan="2">Grand Total</th>
             <th><span id="grandTotal">0.00</span></th>
         </tr>
@@ -114,7 +141,7 @@
         document.getElementById(totalId).innerText = total.toFixed(2);
 
         // Update Grand Total
-        const totals = [200, 100, 50, 20, 10, 5, 2, 1, 0.5].map(den => 
+        const totals = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1].map(den => 
             parseFloat(document.getElementById('total' + den).innerText)
         );
         const grandTotal = totals.reduce((acc, curr) => acc + curr, 0);
