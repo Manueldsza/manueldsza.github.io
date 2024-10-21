@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #e0f7fa; /* Change to your desired solid color */
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 1% 2%;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+        input[type="number"] {
+            width: 100%;
+            max-width: 60px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"]:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            th, td {
+                padding: 2%;
+                font-size: 13px;
+            }
+
+            input[type="number"] {
+                max-width: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            th, td {
+                font-size: 12px;
+                padding: 2%;
+            }
+
+            input[type="number"] {
+                max-width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Money Counter</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Denomination</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>R200</td>
+            <td><input type="number" id="qty200" oninput="calculateTotal(200, 'qty200', 'total200')"></td>
+            <td><span id="total200">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R100</td>
+            <td><input type="number" id="qty100" oninput="calculateTotal(100, 'qty100', 'total100')"></td>
+            <td><span id="total100">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R50</td>
+            <td><input type="number" id="qty50" oninput="calculateTotal(50, 'qty50', 'total50')"></td>
+            <td><span id="total50">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R20</td>
+            <td><input type="number" id="qty20" oninput="calculateTotal(20, 'qty20', 'total20')"></td>
+            <td><span id="total20">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R10</td>
+            <td><input type="number" id="qty10" oninput="calculateTotal(10, 'qty10', 'total10')"></td>
+            <td><span id="total10">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R5</td>
+            <td><input type="number" id="qty5" oninput="calculateTotal(5, 'qty5', 'total5')"></td>
+            <td><span id="total5">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R2</td>
+            <td><input type="number" id="qty2" oninput="calculateTotal(2, 'qty2', 'total2')"></td>
+            <td><span id="total2">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R1</td>
+            <td><input type="number" id="qty1" oninput="calculateTotal(1, 'qty1', 'total1')"></td>
+            <td><span id="total1">0.00</span></td>
+        </tr>
+        <tr>
+            <td>50c</td>
+            <td><input type="number" id="qty0.5" oninput="calculateTotal(0.5, 'qty0.5', 'total0.5')"></td>
+            <td><span id="total0.5">0.00</span></td>
+        </tr>
+        <tr>
+            <td>20c</td>
+            <td><input type="number" id="qty0.2" oninput="calculateTotal(0.2, 'qty0.2', 'total0.2')"></td>
+            <td><span id="total0.2">0.00</span></td>
+        </tr>
+        <tr>
+            <td>10c</td>
+            <td><input type="number" id="qty0.1" oninput="calculateTotal(0.1, 'qty0.1', 'total0.1')"></td>
+            <td><span id="total0.1">0.00</span></td>
+        </tr>
+        <tr>
+            <th colspan="2">Grand Total</th>
+            <th><span id="grandTotal">0.00</span></th>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function calculateTotal(denomination, qtyId, totalId) {
+        const qty = document.getElementById(qtyId).value;
+        const total = denomination * qty;
+        document.getElementById(totalId).innerText = total.toFixed(2);
+
+        // Update Grand Total
+        const totals = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1].map(den => 
+            parseFloat(document.getElementById('total' + den).innerText)
+        );
+        const grandTotal = totals.reduce((acc, curr) => acc + curr, 0);
+        document.getElementById('grandTotal').innerText = grandTotal.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
