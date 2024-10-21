@@ -3,108 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denomination Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Money Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5);
+            background-size: cover;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            max-width: 80px;
+            text-align: center;
+        }
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="page1" class="page">
-        <h1>Page 1 - Denominations</h1>
-        <form id="form1">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Denomination</th>
-                        <th>Qty</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>R200</td>
-                        <td><input type="number" id="qty200_1" min="0" value="0"></td>
-                        <td><span id="total200_1">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>R100</td>
-                        <td><input type="number" id="qty100_1" min="0" value="0"></td>
-                        <td><span id="total100_1">0</span></td>
-                    </tr>
-                    <!-- Add more denominations here -->
-                    <tr>
-                        <td>10c</td>
-                        <td><input type="number" id="qty10c_1" min="0" value="0"></td>
-                        <td><span id="total10c_1">0</span></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Grand Total: <span id="grandTotal1">0</span></h2>
-            <button type="button" onclick="navigateToPage(2)">Next</button>
-        </form>
-    </div>
 
-    <div id="page2" class="page">
-        <h1>Page 2 - Denominations</h1>
-        <form id="form2">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Denomination</th>
-                        <th>Qty</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>R200</td>
-                        <td><input type="number" id="qty200_2" min="0" value="0"></td>
-                        <td><span id="total200_2">0</span></td>
-                    </tr>
-                    <tr>
-                        <td>R100</td>
-                        <td><input type="number" id="qty100_2" min="0" value="0"></td>
-                        <td><span id="total100_2">0</span></td>
-                    </tr>
-                    <!-- Add more denominations here -->
-                    <tr>
-                        <td>10c</td>
-                        <td><input type="number" id="qty10c_2" min="0" value="0"></td>
-                        <td><span id="total10c_2">0</span></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Grand Total: <span id="grandTotal2">0</span></h2>
-            <button type="button" onclick="navigateToPage(3)">Next</button>
-        </form>
-    </div>
+<h1>Money Counter</h1>
 
-    <div id="page3" class="page">
-        <h1>Page 3 - Difference</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Denomination</th>
-                    <th>Difference</th>
-                </tr>
-            </thead>
-            <tbody id="differenceTable">
-                <tr>
-                    <td>R200</td>
-                    <td><span id="diff200">0</span></td>
-                </tr>
-                <tr>
-                    <td>R100</td>
-                    <td><span id="diff100">0</span></td>
-                </tr>
-                <!-- Add more denominations here -->
-                <tr>
-                    <td>10c</td>
-                    <td><span id="diff10c">0</span></td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>Total Difference: <span id="totalDifference">0</span></h2>
-    </div>
+<table>
+    <thead>
+        <tr>
+            <th>Denomination</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>R200</td>
+            <td><input type="number" id="qty200" oninput="calculateTotal(200, 'qty200', 'total200')"></td>
+            <td><span id="total200">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R100</td>
+            <td><input type="number" id="qty100" oninput="calculateTotal(100, 'qty100', 'total100')"></td>
+            <td><span id="total100">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R50</td>
+            <td><input type="number" id="qty50" oninput="calculateTotal(50, 'qty50', 'total50')"></td>
+            <td><span id="total50">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R20</td>
+            <td><input type="number" id="qty20" oninput="calculateTotal(20, 'qty20', 'total20')"></td>
+            <td><span id="total20">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R10</td>
+            <td><input type="number" id="qty10" oninput="calculateTotal(10, 'qty10', 'total10')"></td>
+            <td><span id="total10">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R5</td>
+            <td><input type="number" id="qty5" oninput="calculateTotal(5, 'qty5', 'total5')"></td>
+            <td><span id="total5">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R2</td>
+            <td><input type="number" id="qty2" oninput="calculateTotal(2, 'qty2', 'total2')"></td>
+            <td><span id="total2">0.00</span></td>
+        </tr>
+        <tr>
+            <td>R1</td>
+            <td><input type="number" id="qty1" oninput="calculateTotal(1, 'qty1', 'total1')"></td>
+            <td><span id="total1">0.00</span></td>
+        </tr>
+        <tr>
+            <td>50c</td>
+            <td><input type="number" id="qty0.5" oninput="calculateTotal(0.5, 'qty0.5', 'total0.5')"></td>
+            <td><span id="total0.5">0.00</span></td>
+        </tr>
+        <tr>
+            <th colspan="2">Grand Total</th>
+            <th><span id="grandTotal">0.00</span></th>
+        </tr>
+    </tbody>
+</table>
 
-    <script src="script.js"></script>
+<script>
+    function calculateTotal(denomination, qtyId, totalId) {
+        const qty = document.getElementById(qtyId).value;
+        const total = denomination * qty;
+        document.getElementById(totalId).innerText = total.toFixed(2);
+
+        // Update Grand Total
+        const totals = [200, 100, 50, 20, 10, 5, 2, 1, 0.5].map(den => 
+            parseFloat(document.getElementById('total' + den).innerText)
+        );
+        const grandTotal = totals.reduce((acc, curr) => acc + curr, 0);
+        document.getElementById('grandTotal').innerText = grandTotal.toFixed(2);
+    }
+</script>
+
 </body>
 </html>
