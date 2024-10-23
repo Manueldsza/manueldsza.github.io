@@ -11,11 +11,16 @@ h1 {
     font-size: 5vw; /* Make the title responsive */
 }
 table {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%; /* Full width */
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center the table */
+    border-collapse: collapse; /* Collapse borders */
+    background: rgba(255, 255, 255, 0.3); /* Glass effect */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    flex-grow: 1; /* Allow table to grow and fill available space */
+    overflow: auto; /* Enable scrolling if necessary */
+    border-radius: 15px; /* Rounded corners */
 }
 th, td {
     padding: 8px;
