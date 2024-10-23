@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5);
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    font-size: 5vw; /* Make the title responsive */
+}
+table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+    font-size: 4vw; /* Responsive font size */
+}
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+input[type="number"] {
+    width: 60px;
+    font-size: 3.5vw; /* Responsive input size */
+    text-align: center;
+    padding: 5px;
+}
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+tbody tr:last-child {
+    border-bottom: none;
+}
+@media (min-width: 600px) {
+    th, td {
+        font-size: 1.5vw; /* Larger font for bigger screens */
+    }
+    input[type="number"] {
+        width: 80px;
+        font-size: 1.2vw;
+    }
+    h1 {
+        font-size: 2.5vw;
+    }
+}

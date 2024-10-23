@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Register 1</h1>
+<button onclick="navigateTo('register1')">Register 1</button>
+<button onclick="navigateTo('register2')">Register 2</button>
+<button onclick="navigateTo('differences')">Differences</button>
+
+<table>
+    <!-- Table structure identical to your original code -->
+    <!-- Ensure you pass `register1` to `calculateTotal` in the JavaScript -->
+    <!-- Example row: -->
+    <tr>
+        <td>R200</td>
+        <td><input type="number" id="qty200" oninput="calculateTotal(200, 'qty200', 'total200', register1)"></td>
+        <td><span id="total200">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R100</td>
+        <td><input type="number" id="qty100" oninput="calculateTotal(100, 'qty100', 'total100', register1)"></td>
+        <td><span id="total100">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R50</td>
+        <td><input type="number" id="qty50" oninput="calculateTotal(50, 'qty50', 'total50', register1)"></td>
+        <td><span id="total50">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R20</td>
+        <td><input type="number" id="qty20" oninput="calculateTotal(20, 'qty20', 'total20', register1)"></td>
+        <td><span id="total20">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R10</td>
+        <td><input type="number" id="qty10" oninput="calculateTotal(10, 'qty10', 'total10', register1)"></td>
+        <td><span id="total10">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R5</td>
+        <td><input type="number" id="qty5" oninput="calculateTotal(5, 'qty5', 'total5', register1)"></td>
+        <td><span id="total5">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R2</td>
+        <td><input type="number" id="qty2" oninput="calculateTotal(2, 'qty2', 'total2', register1)"></td>
+        <td><span id="total2">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R1</td>
+        <td><input type="number" id="qty1" oninput="calculateTotal(1, 'qty1', 'total1', register1)"></td>
+        <td><span id="total1">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R0.50</td>
+        <td><input type="number" id="qty0_5" oninput="calculateTotal(0.5, 'qty0_5', 'total0_5', register1)"></td>
+        <td><span id="total0_5">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R0.20</td>
+        <td><input type="number" id="qty0_2" oninput="calculateTotal(0.2, 'qty0_2', 'total0_2', register1)"></td>
+        <td><span id="total0_2">0.00</span></td>
+    </tr>
+    <tr>
+        <td>R0.10</td>
+        <td><input type="number" id="qty0_1" oninput="calculateTotal(0.1, 'qty0_1', 'total0_1', register1)"></td>
+        <td><span id="total0_1">0.00</span></td>
+    </tr>
+    
+    <tr>
+        <th colspan="2">Grand Total</th>
+        <th><span id="grandTotal">0.00</span></th>
+    </tr>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>

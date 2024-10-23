@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differences</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Differences Between Registers</h1>
+<button onclick="navigateTo('register1')">Register 1</button>
+<button onclick="navigateTo('register2')">Register 2</button>
+<button onclick="navigateTo('differences')">Differences</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Denomination</th>
+            <th>Register 1</th>
+            <th>Register 2</th>
+            <th>Difference</th>
+        </tr>
+    </thead>
+    <tbody id="differencesTableBody">
+        <!-- Differences will be dynamically populated -->
+    </tbody>
+</table>
+
+<script src="script.js"></script>
+<script>
+    // Call the function to compare registers and show differences
+    compareRegisters();
+</script>
+
+</body>
+</html>

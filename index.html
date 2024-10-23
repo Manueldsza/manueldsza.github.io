@@ -3,151 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Counter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5);
-            background-size: cover;
-            padding: 0;
-            margin: 0;
-        }
-        h1 {
-            text-align: center;
-            font-size: 5vw; /* Make the title responsive */
-        }
-        table {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        th, td {
-            padding: 8px;
-            text-align: center;
-            font-size: 4vw; /* Responsive font size */
-        }
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        input[type="number"] {
-            width: 60px;
-            font-size: 3.5vw; /* Responsive input size */
-            text-align: center;
-            padding: 5px;
-        }
-        tbody tr {
-            border-bottom: 1px solid #ddd;
-        }
-        tbody tr:last-child {
-            border-bottom: none;
-        }
-        @media (min-width: 600px) {
-            th, td {
-                font-size: 1.5vw; /* Larger font for bigger screens */
-            }
-            input[type="number"] {
-                width: 80px;
-                font-size: 1.2vw;
-            }
-            h1 {
-                font-size: 2.5vw;
-            }
-        }
-    </style>
+    <title>Cash-Up Tool</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linking to existing styles.css -->
 </head>
 <body>
 
-<h1>Money Counter</h1>
+    <div class="container">
+        <h1>Welcome to the Cash-Up Tool</h1>
+        <p>Select a register or view differences:</p>
 
-<table>
-    <thead>
-        <tr>
-            <th>Denomination</th>
-            <th>Quantity</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>R200</td>
-            <td><input type="number" id="qty200" oninput="calculateTotal(200, 'qty200', 'total200')"></td>
-            <td><span id="total200">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R100</td>
-            <td><input type="number" id="qty100" oninput="calculateTotal(100, 'qty100', 'total100')"></td>
-            <td><span id="total100">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R50</td>
-            <td><input type="number" id="qty50" oninput="calculateTotal(50, 'qty50', 'total50')"></td>
-            <td><span id="total50">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R20</td>
-            <td><input type="number" id="qty20" oninput="calculateTotal(20, 'qty20', 'total20')"></td>
-            <td><span id="total20">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R10</td>
-            <td><input type="number" id="qty10" oninput="calculateTotal(10, 'qty10', 'total10')"></td>
-            <td><span id="total10">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R5</td>
-            <td><input type="number" id="qty5" oninput="calculateTotal(5, 'qty5', 'total5')"></td>
-            <td><span id="total5">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R2</td>
-            <td><input type="number" id="qty2" oninput="calculateTotal(2, 'qty2', 'total2')"></td>
-            <td><span id="total2">0.00</span></td>
-        </tr>
-        <tr>
-            <td>R1</td>
-            <td><input type="number" id="qty1" oninput="calculateTotal(1, 'qty1', 'total1')"></td>
-            <td><span id="total1">0.00</span></td>
-        </tr>
-        <tr>
-            <td>50c</td>
-            <td><input type="number" id="qty0.5" oninput="calculateTotal(0.5, 'qty0.5', 'total0.5')"></td>
-            <td><span id="total0.5">0.00</span></td>
-        </tr>
-        <tr>
-            <td>20c</td>
-            <td><input type="number" id="qty0.2" oninput="calculateTotal(0.2, 'qty0.2', 'total0.2')"></td>
-            <td><span id="total0.2">0.00</span></td>
-        </tr>
-        <tr>
-            <td>10c</td>
-            <td><input type="number" id="qty0.1" oninput="calculateTotal(0.1, 'qty0.1', 'total0.1')"></td>
-            <td><span id="total0.1">0.00</span></td>
-        </tr>
-        <tr>
-            <th colspan="2">Grand Total</th>
-            <th><span id="grandTotal">0.00</span></th>
-        </tr>
-    </tbody>
-</table>
+        <div class="navigation-buttons">
+            <button onclick="navigateTo('register1')">Register 1</button>
+            <button onclick="navigateTo('register2')">Register 2</button>
+            <button onclick="navigateTo('differences')">View Differences</button>
+        </div>
+    </div>
 
-<script>
-    function calculateTotal(denomination, qtyId, totalId) {
-        const qty = document.getElementById(qtyId).value;
-        const total = denomination * qty;
-        document.getElementById(totalId).innerText = total.toFixed(2);
-
-        // Update Grand Total
-        const totals = [200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1].map(den => 
-            parseFloat(document.getElementById('total' + den).innerText)
-        );
-        const grandTotal = totals.reduce((acc, curr) => acc + curr, 0);
-        document.getElementById('grandTotal').innerText = grandTotal.toFixed(2);
-    }
-</script>
-
+    <script>
+        // Function to handle navigation between pages
+        function navigateTo(page) {
+            window.location.href = `${page}.html`;
+        }
+    </script>
 </body>
 </html>
