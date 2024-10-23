@@ -1,10 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5);
-    background-size: cover;
-    padding: 0;
+   font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange elements vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Center elements horizontally */
+    background: linear-gradient(135deg, #f9f5f0, #f7d4d4, #f4bfa5); /* Background gradient */
 }
 h1 {
     text-align: center;
@@ -23,13 +26,14 @@ table {
     border-radius: 15px; /* Rounded corners */
 }
 th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: center;
-    font-size: 4vw; /* Responsive font size */
+    font-size: 4vw;
 }
 th {
-    background-color: #f4f4f4;
+    background-color: rgba(244, 244, 244, 0.8); /* Semi-transparent header background */
     font-weight: bold;
+    border-bottom: 2px solid #ccc; /* Bottom border for header */
 }
 input[type="number"] {
     width: 60px;
@@ -45,11 +49,15 @@ tbody tr:last-child {
 }
 @media (min-width: 600px) {
     th, td {
-        font-size: 1.5vw; /* Larger font for bigger screens */
+        font-size: 1.5vw; 
     }
     input[type="number"] {
-        width: 80px;
-        font-size: 1.2vw;
+    width: 60px;
+    font-size: 3.5vw; 
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
     }
     h1 {
         font-size: 2.5vw;
